@@ -1,0 +1,18 @@
+<launch>
+   <node pkg="move_base" type="move_base" respawn="false" name="move_base">
+    <rosparam file="$(find planning)/param/costmap_common_params.yaml" command="load" ns="global_costmap" /> 
+    <rosparam file="$(find planning)/param/costmap_common_params.yaml" command="load" ns="local_costmap" />
+    <rosparam file="$(find planning)/param/local_costmap_params.yaml" command="load" />
+    <rosparam file="$(find planning)/param/global_costmap_params.yaml" command="load" /> 
+    <rosparam file="$(find planning)/param/base_local_planner_params.yaml" command="load" />
+    <rosparam file="$(find planning)/param/global_planner_params.yaml" command="load" />
+    <rosparam file="$(find planning)/param/move_base_params.yaml" command="load" />
+    
+    <!-- Adding the map_topic parameter directly -->
+    <param name="global_costmap/static_layer/map_topic" value="/perception/projected_map" />
+    <param name="local_costmap/static_layer/map_topic" value="/perception/projected_map" />
+    
+    <param name="base_local_planner" value="teb_local_planner/TebLocalPlannerROS" />
+    <param name="controller_frequency" value="10.0" />
+ </node>
+</launch>

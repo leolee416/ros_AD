@@ -1,0 +1,68 @@
+TebLocalPlannerROS:
+
+  # Topic names
+  odom_topic: odom  # Topic for odometry data
+  map_frame: world  # Frame used for the map
+
+  # Trajectory configuration
+  teb_autosize: True  # Automatically adjust the number of poses in the trajectory
+  dt_ref: 0.5  # Desired time difference between two consecutive poses
+  dt_hysteresis: 0.1  # Hysteresis for the time difference to avoid oscillations
+  global_plan_overwrite_orientation: True  # Overwrite orientation of the global plan
+  max_global_plan_lookahead_dist: 50.0  # Maximum lookahead distance for the global plan
+  feasibility_check_no_poses: 5  # Number of poses for feasibility checks
+  meter_scoring: true  # Use meter scoring for the trajectory
+
+  # Robot configuration
+  max_vel_x: 6.0  # Maximum forward velocity
+  max_vel_x_backwards: 0.6  # Maximum backward velocity
+  max_vel_theta: 1.3  # Maximum angular velocity
+  acc_lim_x: 3.8  # Maximum acceleration in the x direction
+  acc_lim_theta: 0.65  # Maximum angular acceleration
+  footprint_model:  # Footprint model configuration
+    type: "polygon"  # Type of footprint model
+    vertices: [[1.5, -1], [-1.5, -1], [-1.5, 1], [1.5, 1]]  # Vertices for the polygon footprint
+  min_turning_radius: 3  # Minimum turning radius for the robot
+
+  # Goal tolerance configuration
+  xy_goal_tolerance: 1  # Tolerance for reaching the goal position
+  yaw_goal_tolerance: 0.2  # Tolerance for reaching the goal orientation
+  free_goal_vel: False  # Allow the robot to move freely at the goal
+
+  # Obstacle configuration
+  min_obstacle_dist: 0.88  # Minimum distance to obstacles
+  include_costmap_obstacles: True  # Include obstacles from the costmap
+  costmap_obstacles_behind_robot_dist: 1.0  # Distance behind the robot to include obstacles
+  obstacle_poses_affected: 10  # Number of poses affected by each obstacle
+  costmap_converter_plugin: ""  # Plugin for costmap conversion
+  costmap_converter_spin_thread: True  # Use a separate thread for the costmap converter
+  costmap_converter_rate: 5  # Rate for the costmap converter
+
+  # Optimization configuration
+  no_inner_iterations: 5  # Number of inner iterations for optimization
+  no_outer_iterations: 4  # Number of outer iterations for optimization
+  optimization_activate: True  # Activate optimization
+  optimization_verbose: False  # Verbose output for optimization
+  penalty_epsilon: 0.1  # Epsilon for penalty calculations
+  weight_max_vel_x: 2  # Weight for the maximum velocity in x direction
+  weight_max_vel_theta: 1  # Weight for the maximum angular velocity
+  weight_acc_lim_x: 1  # Weight for the acceleration limit in x direction
+  weight_acc_lim_theta: 1  # Weight for the angular acceleration limit
+  weight_kinematics_nh: 1000  # Weight for non-holonomic kinematics
+  weight_kinematics_forward_drive: 1  # Weight for forward driving kinematics
+  weight_kinematics_turning_radius: 1  # Weight for the turning radius
+  weight_optimaltime: 1  # Weight for optimizing time
+  weight_obstacle: 50  # Weight for obstacle avoidance
+
+  # Homotopy class planner configuration
+  enable_homotopy_class_planning: True  # Enable homotopy class planning
+  enable_multithreading: True  # Enable multithreading for planning
+  simple_exploration: False  # Use simple exploration
+  max_number_classes: 4  # Maximum number of homotopy classes
+  roadmap_graph_no_samples: 15  # Number of samples for the roadmap graph
+  roadmap_graph_area_width: 5  # Width of the area for the roadmap graph
+  h_signature_prescaler: 0.5  # Prescaler for the homotopy signature
+  h_signature_threshold: 0.1  # Threshold for the homotopy signature
+  obstacle_keypoint_offset: 0.1  # Offset for obstacle keypoints
+  obstacle_heading_threshold: 0.45  # Threshold for obstacle heading
+  visualize_hc_graph: False  # Visualize the homotopy class graph

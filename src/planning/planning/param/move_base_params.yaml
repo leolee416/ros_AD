@@ -1,0 +1,3 @@
+base_global_planner: "waypoint_global_planner/WaypointGlobalPlanner"  # Global planner plugin to use for path planning
+planner_frequency: 0.0  # Frequency at which the global planner runs (Hz); 0.0 uses the default value or runs only when needed
+planner_patience: 1.0  # Time (seconds) the planner will wait for a valid plan before considering it a failure

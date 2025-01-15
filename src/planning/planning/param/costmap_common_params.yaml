@@ -1,0 +1,18 @@
+  obstacle_range: 30  # Maximum range at which obstacles are considered
+  raytrace_range: 30  # Maximum range for raytracing to clear obstacles
+
+  observation_sources: point_cloud_sensor  # List of observation sources for the costmap
+
+  point_cloud_sensor:  # Configuration for the point cloud sensor
+    sensor_frame: depth_camera  # Frame ID of the sensor
+    data_type: PointCloud2  # Data type of the sensor messages
+    topic: /unity_ros/OurCar/Sensors/DepthCamera/pointcloud  # ROS topic for the point cloud data
+    marking: true  # Use the sensor data for marking obstacles
+    clearing: true  # Use the sensor data for clearing obstacles
+
+  map_type: costmap  # Type of map to use (costmap)
+
+  inflater_layer:  # Configuration for the inflation layer
+    enabled: true  # Enable the inflation layer
+    inflation_radius: 2.16  # Radius for inflation around obstacles
+    cost_scaling_factor: 3.0  # Scaling factor for the cost of cells based on distance from obstacles

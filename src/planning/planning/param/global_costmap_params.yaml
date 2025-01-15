@@ -1,0 +1,12 @@
+global_costmap:
+  plugins: 
+    - {name: static_layer, type: "costmap_2d::StaticLayer"}  # Plugin for the static layer
+    - {name: inflation_layer, type: "costmap_2d::InflationLayer"}  # Plugin for the inflation layer
+
+  footprint: [[-1.5, -1], [-1.5, 1], [1.5, 1], [1.5, -1]]  # Footprint of the robot in (x, y) coordinates
+  global_frame: world  # Global frame for the costmap
+  robot_base_frame: base_link  # Base frame of the robot
+  update_frequency: 1.0  # Frequency at which the costmap is updated (Hz)
+  always_send_full_costmap: true  # Always send the full costmap
+  publish_frequency: 1.0  # Frequency at which the costmap is published (Hz)
+  resolution: 2  # Resolution of the costmap (meters per cell)

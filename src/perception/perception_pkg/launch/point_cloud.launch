@@ -1,0 +1,38 @@
+<launch>
+
+  <arg name="name" default="OurCar" />
+
+<!-- 
+Add TF:
+  Create a TF between world and OurCar/Sensors/DepthCamera.
+ -->
+  <!-- <node pkg="tf2_ros" type="static_transform_publisher" name="depth_camera_transform" 
+        args="0 0 0 0 0 0 world OurCar/Sensors/DepthCamera" /> -->
+
+  <node pkg="nodelet" type="nodelet" name="$(arg name)_nodelet_manager" args="manager" />
+
+
+<!-- 
+Subscribed Topics:
+camera_info (sensor_msgs/CameraInfo)
+    topic: /unity_ros/OurCar/Sensors/DepthCamera/camera_info
+    Camera calibration and metadata. 
+
+image_rect (sensor_msgs/Image)
+    topic：/unity_ros/OurCar/Sensors/DepthCamera/image_raw
+    Rectified depth image. 
+
+    Published Topics:
+points (sensor_msgs/PointCloud2)
+    topic: /unity_ros/OurCar/Sensors/DepthCamera/pointcloud
+    XYZ point cloud. 
+ -->
+  <node pkg="nodelet" type="nodelet" name="$(arg name)_nodelet"
+        args="load depth_image_proc/point_cloud_xyz $(arg name)_nodelet_manager">
+    <remap from="camera_info" to="/unity_ros/OurCar/Sensors/DepthCamera/camera_info"/>
+    <remap from="image_rect" to="/unity_ros/OurCar/Sensors/DepthCamera/image_raw"/>
+    <remap from="points" to="/unity_ros/OurCar/Sensors/DepthCamera/pointcloud"/>
+  </node>
+
+
+</launch>

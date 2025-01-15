@@ -1,0 +1,13 @@
+local_costmap:
+  plugins: 
+    - {name: static_layer, type: "costmap_2d::StaticLayer"}  # Plugin for the static layer
+    - {name: inflation_layer, type: "costmap_2d::InflationLayer"}  # Plugin for the inflation layer
+
+  global_frame: world  # Global frame for the costmap
+  robot_base_frame: base_link  # Base frame of the robot
+  update_frequency: 5.0  # Frequency at which the local costmap is updated (Hz)
+  publish_frequency: 2.0  # Frequency at which the local costmap is published (Hz)
+  rolling_window: true  # Use a rolling window for the local costmap
+  width: 10.0  # Width of the local costmap (meters)
+  height: 10.0  # Height of the local costmap (meters)
+  resolution: 1  # Resolution of the local costmap (meters per cell)
