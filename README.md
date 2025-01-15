@@ -1,5 +1,5 @@
-# TUM Project Introduction to ROS: Autonomous Driving
-This is the repo for the group project on autonomous driving of Team 15 for the lecture **Introduction to ROS** in the summer semester 2024.
+# ROS: Autonomous Driving
+This is the repo for the group project on autonomous driving.
 
 # Project Overview
 *(The objective of this project is to achieve automatic driving of a vehicle on a specified route. The vehicle must complete the entire route in the shortest possible time while avoiding obstacles and complying with traffic rules. We have divided the project into three main components: perception, planning, and control. These components are interconnected through a state machine.
@@ -28,7 +28,7 @@ In the perception component, we employ two methods: a traditional computer visio
 - **Contact**: [go69wig@mytum.com](mailto:go69wig@mytum.com)
 
 # Contents
-- [TUM Project Introduction to ROS: Autonomous Driving](#tum-project-introduction-to-ros-autonomous-driving)
+- ROS: Autonomous Driving](#ros-autonomous-driving)
 - [Project Overview](#project-overview)
   - [Team Members](#team-members)
     - [Zhenjiang Li](#zhenjiang-li)
@@ -55,7 +55,7 @@ In the perception component, we employ two methods: a traditional computer visio
 ## Result
 
 ### Video
-Demo_video: [Watch the demo video](https://gitlab.lrz.de/i2ros_group_15/autonomous_driving/-/raw/main/video/Demo_video.mp4?ref_type=heads&inline=false)
+Demo_video: [demo_video](https://www.bilibili.com/video/BV18qwMeqEi2/)
 ### Image
 #### Global map
 ![Global map](https://gitlab.lrz.de/i2ros_group_15/autonomous_driving/-/raw/main/image/Screenshot%20from%202024-07-29%2022-07-44.png?ref_type=heads&inline=false)
